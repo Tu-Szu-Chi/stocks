@@ -29,7 +29,7 @@ class StockCrawlerService(object):
 				matches = pattern.match(row)
 				if matches:
 					# 去年基金、证券等非股票代码
-					stockCode = macthes.group(3).decode('gbk')
+					stockCode = matches.group(3).decode('gbk')
 					if stockCode.startswith('600') or stockCode.startswith('601') or stockCode.startswith('603') \
 									or stockCode.startswith('002') or stockCode.startswith('300') or stockCode.startswith('000'):
 						stockBaseModel = StockBaseModel(None, matches.group(3), matches.group(2).decode('gbk').encode('utf-8'), matches.group(1))
@@ -89,7 +89,7 @@ class StockCrawlerService(object):
 					logger.error('%s - %s' % (stockBaseModel.stockCode, e))
 				finally:
 					pass
-								
+
 		except urllib2.HTTPError, e:
 			logger.error('%s - %s' % (stockBaseModel.stockCode, e))
 		except Exception, e:
