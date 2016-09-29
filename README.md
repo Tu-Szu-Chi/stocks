@@ -1,13 +1,15 @@
 # stocks
 每天从网上抓取股票数据并保存到本地以供分析
 ## 配置教學
-*需安裝「MySQLdb Library」
+###需安裝「MySQLdb Library」
   >可用 "pip install MySQL-python"
+  >
 - - -
-*storages/BaseStorage.py 需更改DB設定
+###storages/BaseStorage.py 需更改DB設定
   >[host],[user],[passwd],[db],[charset]
+  >
 - - -
-*main.py
+###main.py
   >初次跑此程式需把
   >>line:14 StockCrawlerService.fetchAllStockBaseModelsFromInternet()
   >>line:16 StockCrawlerService.fetchAllStockCategoryModelsFromInternet()
